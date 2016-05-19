@@ -1,0 +1,37 @@
+version: '2'
+
+# Based on: https://github.com/willdurand/docker-elk/tree/kibana-4.4.2
+
+# If 'docker-compose up' finished successfully,
+# the Kibana4 Web-UI should be accessible via http://localhost:8080
+
+# Logs you wanna see in ElasticSearch/Kibana4, MUST be placed under
+# './filebeat/logstowatch/' with a file ending of '.log' to be picked
+# up by the Filebeat agent.
+
+services:
+  elk:
+    build: .
+    ports:
+     - "8080:80"
+    volumes:
+     - ./logstash_conf:/etc/logstash
+    container_name: elk
+    networks:
+      logwork:
+        aliases:
+         - logstash
+
+  filebeat:
+    build: ./filebeat
+    container_name: filebeat
+    volumes:
+      - ./filebeat/logstowatch:/tmp/logstowatch
+    networks:
+      logwork:
+        aliases:
+          - filebeat
+
+networks:
+  logwork:
+    driver: bridge
