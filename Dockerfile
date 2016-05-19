@@ -19,7 +19,8 @@ RUN \
     apt-get clean && \
     sed -i '/# cluster.name:.*/a cluster.name: logstash' /etc/elasticsearch/elasticsearch.yml && \
     sed -i '/# path.data: \/path\/to\/data/a path.data: /data' /etc/elasticsearch/elasticsearch.yml && \
-    sed -i '/# path.logs: \/path\/to\/logs/a path.logs: /var/log/elasticsearch' /etc/elasticsearch/elasticsearch.yml
+    sed -i '/# path.logs: \/path\/to\/logs/a path.logs: /var/log/elasticsearch' /etc/elasticsearch/elasticsearch.yml && \
+    echo "network.host: 0.0.0.0" >> /etc/elasticsearch/elasticsearch.yml
 
 # Kibana
 RUN \
