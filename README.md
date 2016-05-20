@@ -3,15 +3,7 @@ Elasticsearch. Logstash. Kibana.
 
 Creating an ELK stack could not be easier.
 
-**Important:**
-
-* The `master` branch (image: `willdurand/elk:latest` or
-  `willdurand/elk:kibana-4.1.2`) currently contains an image with Kibana 4.1.2,
-  Elasticsearch 1.x, and Logstash 1.x;
-* Branch
-  [`kibana-4.4.2`](https://github.com/willdurand/docker-elk/tree/kibana-4.4.2)
-  (image: `willdurand/elk:kibana-4.4.2`) provides Kibana 4.4.2, Elasticsearch
-  2.2, and Logstash 2.2.
+**Important:** this image embeds Elasticsearch 2.2, Logstash 2.2, and Kibana 4.4.2.
 
 Quick Start
 -----------
@@ -25,7 +17,10 @@ $ docker run -p 8080:80 \
 Then, browse: [http://localhost:8080](http://localhost:8080) (replace
 `localhost` with your public IP address).
 
-Your logstash configuration directory MUST contain at least one logstash configuration file. If several files are found in the configuration directory, logstash will use all of them, concatenated in lexicographical order, as the configuration.
+Your logstash configuration directory MUST contain at least one logstash
+configuration file. If several files are found in the configuration directory,
+logstash will use all of them, concatenated in lexicographical order, as the
+configuration.
 
 ### Compose Configuration
 
