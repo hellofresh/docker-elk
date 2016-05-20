@@ -1,3 +1,34 @@
+
+ELK Stack
+===========
+
+This Dockerized ELK stack is composed of two containers _elk_ and _filebeat_ as defined in `docker-compose.yml`:
+- _elk_ container:
+    - **E**lasticSearch (v2.2), **L**ogstash (v2.2) and **K**ibana (v4.4.2).
+- _filebeat_ container:
+   - ElasticSearch Filebeat (v1.2.1, formerly: _logstash-forwarder_) 
+
+
+Quick Start
+-----------
+
+```
+$ docker-compose up
+$ echo "log me" >> ./filebeat/logstowatch/test.log
+# access Kibana4 WebUI by pointing your browser to http://[localhost|Vagrant-IP]:8080/
+```
+
+
+
+--------
+
+original Readme contens follow...
+
+--------
+
+
+
+
 Elasticsearch. Logstash. Kibana.
 ================================
 
