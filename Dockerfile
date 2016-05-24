@@ -36,7 +36,9 @@ ADD etc/supervisor/conf.d/ /etc/supervisor/conf.d/
 RUN mkdir -p /var/log/elasticsearch && \
     mkdir /data && \
     chown elasticsearch:elasticsearch /var/log/elasticsearch && \
-    chown elasticsearch:elasticsearch /data
+    chown elasticsearch:elasticsearch /data && \
+	/usr/share/elasticsearch/bin/plugin install lmenezes/elasticsearch-kopf && \ 
+	/usr/share/elasticsearch/bin/plugin install mobz/elasticsearch-head 
 
 EXPOSE 80
 
